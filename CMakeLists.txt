@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 2.8.3)
 
+#External c library for crazyflie control
 include(ExternalProject)
 ExternalProject_Add(
 	cflie
@@ -11,6 +12,7 @@ ExternalProject_Add(
 ExternalProject_Get_Property(cflie INSTALL_DIR)
 include_directories(${INSTALL_DIR}/src/cflie/include/)
 link_directories(${INSTALL_DIR}/src/cflie/lib/)
+find_library(USB_LIB usb-1.0)
 
 project(crazyflie_fly)
 find_package(
@@ -22,8 +24,8 @@ find_package(
 
 catkin_package()
 
-add_executable(crazyflie_fly src/crazyflie_fly.cpp)
-target_link_libraries(crazyflie_fly libcflie.a ${catkin_LIBRARIES})
-install(TARGETS crazyflie_fly RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
-add_dependencies(crazyflie_fly cflie ${catkin_EXPORTED_TARGETS})
+add_executable(crazyflie_driver src/crazyflie_driver.cpp)
+target_link_libraries(crazyflie_driver libcflie.a ${USB_LIB} ${catkin_LIBRARIES})
+install(TARGETS crazyflie_driver RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+add_dependencies(crazyflie_driver cflie ${catkin_EXPORTED_TARGETS})
 
