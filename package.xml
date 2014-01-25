@@ -1,5 +1,5 @@
 <package>
-  <name>crazyflie_autonomy</name>
+  <name>crazyflie_fly</name>
   <version>0.0.1</version>
   <description>
 
@@ -7,7 +7,9 @@
 
   </description>
   <author>Matt Broussard</author>
+  <author>Robert Lynch</author>
   <maintainer email="mattb@cs.utexas.edu">Matt Broussard</maintainer>
+  <maintainer email="rmlynch@cs.utexas.edu">Robert Lynch</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>catkin</buildtool_depend>

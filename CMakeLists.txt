@@ -12,7 +12,7 @@ ExternalProject_Get_Property(cflie INSTALL_DIR)
 include_directories(${INSTALL_DIR}/src/cflie/include/)
 link_directories(${INSTALL_DIR}/src/cflie/lib/)
 
-project(crazyflie_autonomy)
+project(crazyflie_fly)
 find_package(
 	catkin REQUIRED COMPONENTS 
     roscpp
